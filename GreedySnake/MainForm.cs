@@ -10,15 +10,14 @@ using System.Windows.Forms;
 
 namespace GreedySnake {
     public partial class MainForm : Form {
+        private enum direct {W,A,S,D,stop,};
+        private direct dir= direct.stop;
         private int time=0;
         public MainForm() {
             InitializeComponent();
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
-            // timer1.Tick += new EventHandler(timer1_Tick);
-            //键盘敲击事件
-            Console.Write("MainForm_Load");
         }
 
         private void LabTitle_Click(object sender, EventArgs e) {
@@ -39,40 +38,57 @@ namespace GreedySnake {
 
 
         private void Startbutton_Click(object sender, EventArgs e) {
-            MainClass.StartGame();
-            LabTitle.Text = "贪食蛇";
+            dir = direct.W;
         }
 
         private void timer1_Tick(object sender, EventArgs e) {
             time += 1;
            // Console.Write(" "+time);
             labelScore.Text = time.ToString();
-          //  SnakeMove();
+            SnakeMove();
         }
 
         private void SnakeMove() {
-           // Snakehand.Left += Snakehand.Left+1;
+            switch (dir) {
+                case direct.W:
+                    Snakehand.Top -= 10;
+                    break;
+                case direct.A:
+                    Snakehand.Left -= 10;
+                    break;
+                case direct.S:
+                    Snakehand.Top += 10;
+                    break;
+                case direct.D:
+                    Snakehand.Left += 10;
+                    break;
+                case direct.stop:
+                  
+                    break;
+            }
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e) {
-            if (e.KeyCode.ToString() == "W")   //向右
+            if (e.KeyCode.ToString() == "W")   //向上
             {
+                dir = direct.W;
                 LabTitle.Text = "up";
             }
-            if (e.KeyCode.ToString() == "A")    //向上
+            if (e.KeyCode.ToString() == "A")    //向左
             {
+                dir = direct.A;
                 LabTitle.Text = "left";
             }
             if (e.KeyCode.ToString() == "S")     //向下
             {
+                dir = direct.S;
                 LabTitle.Text = "down";
             }
-            if (e.KeyCode.ToString() == "D")    //向左
+            if (e.KeyCode.ToString() == "D")    //向右
             {
+                dir = direct.D;
                 LabTitle.Text = "right";
             }
         }
-
-
     }
 }

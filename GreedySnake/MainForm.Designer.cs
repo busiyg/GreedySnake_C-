@@ -28,6 +28,7 @@
             this.labelScore = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Snakehand = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LabTitle
@@ -66,11 +67,21 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // Snakehand
+            // 
+            this.Snakehand.BackColor = System.Drawing.Color.Black;
+            this.Snakehand.Location = new System.Drawing.Point(330, 219);
+            this.Snakehand.Name = "Snakehand";
+            this.Snakehand.Size = new System.Drawing.Size(40, 40);
+            this.Snakehand.TabIndex = 3;
+            this.Snakehand.Text = "label1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.Snakehand);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.labelScore);
             this.Controls.Add(this.LabTitle);
@@ -90,5 +101,6 @@
         private System.Windows.Forms.Label labelScore;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label Snakehand;
     }
 }
