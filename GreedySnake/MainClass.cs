@@ -9,6 +9,7 @@ namespace GreedySnake {
         static void Main() {
             string strname = Console.ReadLine();
             Console.WriteLine(strname);
+            Console.WriteLine("test network");
             Console.ReadKey();
 
 
