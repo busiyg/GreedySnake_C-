@@ -41,7 +41,6 @@
             this.LabTitle.Size = new System.Drawing.Size(140, 48);
             this.LabTitle.TabIndex = 0;
             this.LabTitle.Text = "Title";
-            this.LabTitle.Click += new System.EventHandler(this.LabTitle_Click);
             // 
             // labelScore
             // 
@@ -72,7 +71,7 @@
             this.Snakehand.BackColor = System.Drawing.Color.Black;
             this.Snakehand.Location = new System.Drawing.Point(330, 219);
             this.Snakehand.Name = "Snakehand";
-            this.Snakehand.Size = new System.Drawing.Size(40, 40);
+            this.Snakehand.Size = new System.Drawing.Size(20, 20);
             this.Snakehand.TabIndex = 3;
             this.Snakehand.Text = "label1";
             // 
