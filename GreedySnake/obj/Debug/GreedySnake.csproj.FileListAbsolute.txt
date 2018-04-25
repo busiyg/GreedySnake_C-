@@ -1,0 +1,6 @@
+D:\C#Projects\GreedySnake\GreedySnake\obj\Debug\GreedySnake.csprojResolveAssemblyReference.cache
+D:\C#Projects\GreedySnake\GreedySnake\bin\Debug\GreedySnake.exe.config
+D:\C#Projects\GreedySnake\GreedySnake\bin\Debug\GreedySnake.exe
+D:\C#Projects\GreedySnake\GreedySnake\bin\Debug\GreedySnake.pdb
+D:\C#Projects\GreedySnake\GreedySnake\obj\Debug\GreedySnake.exe
+D:\C#Projects\GreedySnake\GreedySnake\obj\Debug\GreedySnake.pdb
