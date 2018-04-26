@@ -32,6 +32,10 @@
             this.开始游戏ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.重新开始ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出游戏ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.难度ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.简单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.困难ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.疯狂ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +66,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.状态ToolStripMenuItem});
+            this.状态ToolStripMenuItem,
+            this.难度ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 25);
@@ -99,6 +104,34 @@
             this.退出游戏ToolStripMenuItem.Text = "退出游戏";
             this.退出游戏ToolStripMenuItem.Click += new System.EventHandler(this.退出游戏ToolStripMenuItem_Click);
             // 
+            // 难度ToolStripMenuItem
+            // 
+            this.难度ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.简单ToolStripMenuItem,
+            this.困难ToolStripMenuItem,
+            this.疯狂ToolStripMenuItem});
+            this.难度ToolStripMenuItem.Name = "难度ToolStripMenuItem";
+            this.难度ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.难度ToolStripMenuItem.Text = "难度";
+            // 
+            // 简单ToolStripMenuItem
+            // 
+            this.简单ToolStripMenuItem.Name = "简单ToolStripMenuItem";
+            this.简单ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.简单ToolStripMenuItem.Text = "简单";
+            // 
+            // 困难ToolStripMenuItem
+            // 
+            this.困难ToolStripMenuItem.Name = "困难ToolStripMenuItem";
+            this.困难ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.困难ToolStripMenuItem.Text = "困难";
+            // 
+            // 疯狂ToolStripMenuItem
+            // 
+            this.疯狂ToolStripMenuItem.Name = "疯狂ToolStripMenuItem";
+            this.疯狂ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.疯狂ToolStripMenuItem.Text = "疯狂";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -129,5 +162,9 @@
         private System.Windows.Forms.ToolStripMenuItem 开始游戏ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 重新开始ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 退出游戏ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 难度ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 简单ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 困难ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 疯狂ToolStripMenuItem;
     }
 }

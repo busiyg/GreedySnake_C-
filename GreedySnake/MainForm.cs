@@ -30,8 +30,8 @@ namespace GreedySnake {
         }
 
         void SaveMap() {
-            for (int i=0;i<39;i++) {
-                for (int j=2;j<29;j++) {
+            for (int i=1;i<38;i++) {
+                for (int j=2;j<28;j++) {
                     Point point = new Point();
                     point.X = i * 20;
                     point.Y = j * 20;
@@ -203,6 +203,10 @@ namespace GreedySnake {
         }
 
         private void 退出游戏ToolStripMenuItem_Click(object sender, EventArgs e) {
+
+        }
+
+        private void toolStripComboBox1_Click(object sender, EventArgs e) {
 
         }
     }
