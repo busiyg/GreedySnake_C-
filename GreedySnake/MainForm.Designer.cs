@@ -24,24 +24,16 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            this.LabTitle = new System.Windows.Forms.Label();
             this.labelScore = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Snakehand = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.状态ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.开始游戏ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.重新开始ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.退出游戏ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // LabTitle
-            // 
-            this.LabTitle.AutoSize = true;
-            this.LabTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.LabTitle.Font = new System.Drawing.Font("宋体", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LabTitle.Location = new System.Drawing.Point(322, 9);
-            this.LabTitle.Name = "LabTitle";
-            this.LabTitle.Size = new System.Drawing.Size(140, 48);
-            this.LabTitle.TabIndex = 0;
-            this.LabTitle.Text = "Title";
             // 
             // labelScore
             // 
@@ -52,16 +44,6 @@
             this.labelScore.TabIndex = 1;
             this.labelScore.Text = "Score";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(350, 526);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "吃东西";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Startbutton_Click);
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
@@ -70,49 +52,82 @@
             // Snakehand
             // 
             this.Snakehand.BackColor = System.Drawing.Color.Black;
-            this.Snakehand.Location = new System.Drawing.Point(330, 219);
+            this.Snakehand.Location = new System.Drawing.Point(300, 300);
             this.Snakehand.Name = "Snakehand";
             this.Snakehand.Size = new System.Drawing.Size(20, 20);
             this.Snakehand.TabIndex = 3;
             this.Snakehand.Text = "label1";
+            this.Snakehand.Click += new System.EventHandler(this.Snakehand_Click);
             // 
-            // button2
+            // menuStrip1
             // 
-            this.button2.Location = new System.Drawing.Point(12, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "开始游戏";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.OnStart_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.状态ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 25);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 状态ToolStripMenuItem
+            // 
+            this.状态ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.开始游戏ToolStripMenuItem,
+            this.重新开始ToolStripMenuItem,
+            this.退出游戏ToolStripMenuItem});
+            this.状态ToolStripMenuItem.Name = "状态ToolStripMenuItem";
+            this.状态ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.状态ToolStripMenuItem.Text = "操作";
+            // 
+            // 开始游戏ToolStripMenuItem
+            // 
+            this.开始游戏ToolStripMenuItem.Name = "开始游戏ToolStripMenuItem";
+            this.开始游戏ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.开始游戏ToolStripMenuItem.Text = "开始游戏";
+            this.开始游戏ToolStripMenuItem.Click += new System.EventHandler(this.开始游戏ToolStripMenuItem_Click);
+            // 
+            // 重新开始ToolStripMenuItem
+            // 
+            this.重新开始ToolStripMenuItem.Name = "重新开始ToolStripMenuItem";
+            this.重新开始ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.重新开始ToolStripMenuItem.Text = "重新开始";
+            // 
+            // 退出游戏ToolStripMenuItem
+            // 
+            this.退出游戏ToolStripMenuItem.Name = "退出游戏ToolStripMenuItem";
+            this.退出游戏ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.退出游戏ToolStripMenuItem.Text = "退出游戏";
+            this.退出游戏ToolStripMenuItem.Click += new System.EventHandler(this.退出游戏ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.Snakehand);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.labelScore);
-            this.Controls.Add(this.LabTitle);
+            this.Controls.Add(this.menuStrip1);
             this.KeyPreview = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Text = "ad";
+            this.Text = "贪食蛇";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label LabTitle;
         private System.Windows.Forms.Label labelScore;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label Snakehand;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 状态ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 开始游戏ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 重新开始ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 退出游戏ToolStripMenuItem;
     }
 }

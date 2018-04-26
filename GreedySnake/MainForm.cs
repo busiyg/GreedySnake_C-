@@ -10,19 +10,47 @@ using System.Windows.Forms;
 
 namespace GreedySnake {
     public partial class MainForm : Form {
+        private Random rad=new Random();
         private enum direct {W,A,S,D,stop,};
         private enum GameState { ready,Gameing,GameOver };
         private direct dir= direct.stop;
         private GameState state = GameState.ready;
-        private int time=0;
+        private int Score=0;
         private List<Label> bodys = new List<Label>();
+        private List<Point> mapPoint = new List<Point>();
+        private Label Food;
         public MainForm() {
             InitializeComponent();
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
+            SaveMap();
+            InitBaseBodys();
+            InitFood();      
+        }
 
-            for (int i=0;i<2;i++) {
+        void SaveMap() {
+            for (int i=0;i<39;i++) {
+                for (int j=2;j<29;j++) {
+                    Point point = new Point();
+                    point.X = i * 20;
+                    point.Y = j * 20;
+                    mapPoint.Add(point);
+                }
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e) {      
+            CheckGameState();
+        }
+
+        private void OnStart_Click(object sender, EventArgs e) {
+            state = GameState.Gameing;
+            dir = direct.W;
+        }
+
+        void InitBaseBodys() {
+            for (int i = 0; i < 2; i++) {
                 Label lb = new Label();
                 lb.Width = lb.Height = 20;
                 lb.Top = Snakehand.Top;
@@ -30,36 +58,63 @@ namespace GreedySnake {
                 lb.BackColor = Color.Red;
                 bodys.Add(lb);
                 this.Controls.Add(lb);
-
-                Console.Write("bodys.count:" + bodys.Count);
             }
-         
         }
 
-        private void Startbutton_Click(object sender, EventArgs e) {
+        void SnakeGrow() {
             Label lb = new Label();
             lb.Width = lb.Height = 20;
-            lb.Top = bodys[bodys.Count-1].Top;
+            lb.Top = bodys[bodys.Count - 1].Top;
             lb.Left = bodys[bodys.Count - 1].Left;
             lb.BackColor = Color.Red;
             bodys.Add(lb);
             this.Controls.Add(lb);
-
-            Console.Write("bodys.count:"+bodys.Count);
         }
 
-        private void timer1_Tick(object sender, EventArgs e) {
-            time += 1;
-            labelScore.Text = time.ToString();
-            IsAlive();
-            CheckGameState();
-            
+        void InitFood() {
+            var AllowPos = new List<Point>();
+            AllowPos.AddRange(mapPoint);
+
+            for (int i=0;i< bodys.Count;i++) {
+                Point poi = new Point(bodys[i].Location.X, bodys[i].Location.Y);
+                AllowPos.Remove(poi);
+            }
+
+            if (Food==null) {
+                Label lb = new Label();
+                lb.Width = lb.Height = 20;
+                lb.Location = AllowPos[rad.Next(0, AllowPos.Count-1)];          
+                lb.BackColor = Color.Green;
+                Food = lb;
+                this.Controls.Add(lb);
+            }
+            AllowPos.Clear();
+        }
+
+        void IsEat() {
+            if (Food!=null) {
+                if (Snakehand.Location == Food.Location) {
+                    SnakeGrow();
+                    this.Controls.Remove(Food);
+                    Food = null;
+                    Score += 1;
+                    labelScore.Text = Score.ToString();
+                    InitFood();
+                }
+            }         
         }
 
         void IsAlive() {
+            if (Snakehand.Left<20|| Snakehand.Left>760|| Snakehand.Top < 20 || Snakehand.Top > 560) {
+                state = GameState.GameOver;
+                MessageBox.Show("Game Over!  Socre:" + Score);
+                return;
+            }          
+
             foreach (var obj in bodys) {
-                if (obj.Left==Snakehand.Left&&obj.Top==Snakehand.Top) {
+                if (obj.Location==Snakehand.Location) {
                     state = GameState.GameOver;
+                    MessageBox.Show("Game Over!  Socre:"+Score);
                     break;
                 }
             }
@@ -67,15 +122,15 @@ namespace GreedySnake {
 
         private void CheckGameState() {
             switch (state) {
-                case GameState.ready:
-                
+                case GameState.ready:                
                     break;
                 case GameState.Gameing:
                     SnakeMove();
+                    IsAlive();
+                    IsEat();
                     break;
                 case GameState.GameOver:
-                    break;
-       
+                    break;      
             }
         }
 
@@ -94,11 +149,9 @@ namespace GreedySnake {
                 case direct.D:
                     Snakehand.Left += 20;
                     break;
-                case direct.stop:
-                  
+                case direct.stop:                 
                     break;
             }
-
         }
 
         void BodyMove() {
@@ -108,7 +161,6 @@ namespace GreedySnake {
                     bodys[i + 1].Left = bodys[i].Left;
                     bodys[i + 1].Top = bodys[i].Top;
                 }
-
                 bodys[0].Left = Snakehand.Left;
                 bodys[0].Top = Snakehand.Top;
             } else {
@@ -117,38 +169,41 @@ namespace GreedySnake {
                     bodys[i].Top = bodys[i - 1].Top;
                 }
             }
-            //if (bodys.Count>1) {
-
-            //}
-
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode.ToString() == "W"&& dir!= direct.S)   //向上
             {
                 dir = direct.W;
-                LabTitle.Text = "up";
+
             }
             if (e.KeyCode.ToString() == "A" && dir != direct.D)    //向左
             {
                 dir = direct.A;
-                LabTitle.Text = "left";
+
             }
             if (e.KeyCode.ToString() == "S" && dir != direct.W)     //向下
             {
                 dir = direct.S;
-                LabTitle.Text = "down";
+ 
             }
             if (e.KeyCode.ToString() == "D" && dir != direct.A)    //向右
             {
                 dir = direct.D;
-                LabTitle.Text = "right";
             }
         }
 
-        private void OnStart_Click(object sender, EventArgs e) {
+        private void 开始游戏ToolStripMenuItem_Click(object sender, EventArgs e) {
             state = GameState.Gameing;
             dir = direct.W;
+        }
+
+        private void Snakehand_Click(object sender, EventArgs e) {
+
+        }
+
+        private void 退出游戏ToolStripMenuItem_Click(object sender, EventArgs e) {
+
         }
     }
 }
