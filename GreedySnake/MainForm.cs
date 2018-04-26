@@ -11,7 +11,9 @@ using System.Windows.Forms;
 namespace GreedySnake {
     public partial class MainForm : Form {
         private enum direct {W,A,S,D,stop,};
+        private enum GameState { ready,Gameing,GameOver };
         private direct dir= direct.stop;
+        private GameState state = GameState.ready;
         private int time=0;
         private List<Label> bodys = new List<Label>();
         public MainForm() {
@@ -19,13 +21,26 @@ namespace GreedySnake {
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
-           // bodys.Add(Snakehand);
+
+            for (int i=0;i<2;i++) {
+                Label lb = new Label();
+                lb.Width = lb.Height = 20;
+                lb.Top = Snakehand.Top;
+                lb.Left = Snakehand.Left + 20;
+                lb.BackColor = Color.Red;
+                bodys.Add(lb);
+                this.Controls.Add(lb);
+
+                Console.Write("bodys.count:" + bodys.Count);
+            }
+         
         }
 
         private void Startbutton_Click(object sender, EventArgs e) {
-            //dir = direct.W;
             Label lb = new Label();
             lb.Width = lb.Height = 20;
+            lb.Top = bodys[bodys.Count-1].Top;
+            lb.Left = bodys[bodys.Count - 1].Left;
             lb.BackColor = Color.Red;
             bodys.Add(lb);
             this.Controls.Add(lb);
@@ -36,11 +51,32 @@ namespace GreedySnake {
         private void timer1_Tick(object sender, EventArgs e) {
             time += 1;
             labelScore.Text = time.ToString();
-            SnakeMove();
+            IsAlive();
+            CheckGameState();
+            
         }
 
-        private void GameState() {
-          //  if (Snakehand.Top<=0|| Snakehand.Bottom>0) { }
+        void IsAlive() {
+            foreach (var obj in bodys) {
+                if (obj.Left==Snakehand.Left&&obj.Top==Snakehand.Top) {
+                    state = GameState.GameOver;
+                    break;
+                }
+            }
+        }
+
+        private void CheckGameState() {
+            switch (state) {
+                case GameState.ready:
+                
+                    break;
+                case GameState.Gameing:
+                    SnakeMove();
+                    break;
+                case GameState.GameOver:
+                    break;
+       
+            }
         }
 
         private void SnakeMove() {
@@ -108,6 +144,11 @@ namespace GreedySnake {
                 dir = direct.D;
                 LabTitle.Text = "right";
             }
+        }
+
+        private void OnStart_Click(object sender, EventArgs e) {
+            state = GameState.Gameing;
+            dir = direct.W;
         }
     }
 }
