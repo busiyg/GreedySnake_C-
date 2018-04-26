@@ -19,12 +19,15 @@ namespace GreedySnake {
         private List<Label> bodys = new List<Label>();
         private List<Point> mapPoint = new List<Point>();
         private Label Food;
+        private float speed;
         public MainForm() {
             InitializeComponent();
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
             SaveMap();
+            Snakehand.Left = 300;
+            Snakehand.Top = 300;
             InitBaseBodys();
             InitFood();      
         }
@@ -203,11 +206,35 @@ namespace GreedySnake {
         }
 
         private void 退出游戏ToolStripMenuItem_Click(object sender, EventArgs e) {
+            System.Environment.Exit(0);
+        }
+
+        private void 简单ToolStripMenuItem_Click(object sender, EventArgs e) {
+            SingleCheck(sender);
+            timer1.Interval = 500;
+        }
+
+        private void 困难ToolStripMenuItem_Click(object sender, EventArgs e) {
+            SingleCheck(sender);
+            timer1.Interval = 100;
+        }
+
+        private void 疯狂ToolStripMenuItem_Click(object sender, EventArgs e) {
+            SingleCheck(sender);
+            timer1.Interval = 20;
+        }
+
+        private void SingleCheck(object sender)   //单选  
+        {
+            简单ToolStripMenuItem.Checked = false;
+            困难ToolStripMenuItem.Checked = false;
+            疯狂ToolStripMenuItem.Checked = false;
+            ((ToolStripMenuItem)sender).Checked = true;
 
         }
 
-        private void toolStripComboBox1_Click(object sender, EventArgs e) {
-
+        private void 重新开始ToolStripMenuItem_Click(object sender, EventArgs e) {
+         
         }
     }
 }

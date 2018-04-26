@@ -96,6 +96,7 @@
             this.重新开始ToolStripMenuItem.Name = "重新开始ToolStripMenuItem";
             this.重新开始ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.重新开始ToolStripMenuItem.Text = "重新开始";
+            this.重新开始ToolStripMenuItem.Click += new System.EventHandler(this.重新开始ToolStripMenuItem_Click);
             // 
             // 退出游戏ToolStripMenuItem
             // 
@@ -116,21 +117,26 @@
             // 
             // 简单ToolStripMenuItem
             // 
+            this.简单ToolStripMenuItem.Checked = true;
+            this.简单ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.简单ToolStripMenuItem.Name = "简单ToolStripMenuItem";
             this.简单ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.简单ToolStripMenuItem.Text = "简单";
+            this.简单ToolStripMenuItem.Click += new System.EventHandler(this.简单ToolStripMenuItem_Click);
             // 
             // 困难ToolStripMenuItem
             // 
             this.困难ToolStripMenuItem.Name = "困难ToolStripMenuItem";
             this.困难ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.困难ToolStripMenuItem.Text = "困难";
+            this.困难ToolStripMenuItem.Text = "正常";
+            this.困难ToolStripMenuItem.Click += new System.EventHandler(this.困难ToolStripMenuItem_Click);
             // 
             // 疯狂ToolStripMenuItem
             // 
             this.疯狂ToolStripMenuItem.Name = "疯狂ToolStripMenuItem";
             this.疯狂ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.疯狂ToolStripMenuItem.Text = "疯狂";
+            this.疯狂ToolStripMenuItem.Text = "困难";
+            this.疯狂ToolStripMenuItem.Click += new System.EventHandler(this.疯狂ToolStripMenuItem_Click);
             // 
             // MainForm
             // 

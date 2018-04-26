@@ -6,3 +6,4 @@ D:\C#Projects\GreedySnake\GreedySnake\obj\Debug\GreedySnake.exe
 D:\C#Projects\GreedySnake\GreedySnake\obj\Debug\GreedySnake.pdb
 D:\C#Projects\GreedySnake\GreedySnake\obj\Debug\GreedySnake.MainForm.resources
 D:\C#Projects\GreedySnake\GreedySnake\obj\Debug\GreedySnake.csproj.GenerateResource.Cache
+D:\C#Projects\GreedySnake\GreedySnake\obj\Debug\GreedySnake.Properties.Resources.resources
