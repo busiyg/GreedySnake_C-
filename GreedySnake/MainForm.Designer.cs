@@ -36,6 +36,8 @@
             this.简单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.困难ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.疯狂ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.关于贪食蛇ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +69,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.状态ToolStripMenuItem,
-            this.难度ToolStripMenuItem});
+            this.难度ToolStripMenuItem,
+            this.帮助ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 25);
@@ -138,6 +141,21 @@
             this.疯狂ToolStripMenuItem.Text = "困难";
             this.疯狂ToolStripMenuItem.Click += new System.EventHandler(this.疯狂ToolStripMenuItem_Click);
             // 
+            // 帮助ToolStripMenuItem
+            // 
+            this.帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.关于贪食蛇ToolStripMenuItem});
+            this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
+            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.帮助ToolStripMenuItem.Text = "帮助";
+            // 
+            // 关于贪食蛇ToolStripMenuItem
+            // 
+            this.关于贪食蛇ToolStripMenuItem.Name = "关于贪食蛇ToolStripMenuItem";
+            this.关于贪食蛇ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.关于贪食蛇ToolStripMenuItem.Text = "关于贪食蛇";
+            this.关于贪食蛇ToolStripMenuItem.Click += new System.EventHandler(this.关于贪食蛇ToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -172,5 +190,7 @@
         private System.Windows.Forms.ToolStripMenuItem 简单ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 困难ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 疯狂ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 关于贪食蛇ToolStripMenuItem;
     }
 }

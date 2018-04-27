@@ -32,6 +32,18 @@ namespace GreedySnake {
             InitFood();      
         }
 
+        void DestoryBodys(object sender, EventArgs e) {
+            foreach (var obj in bodys) {
+                this.Controls.Remove(obj);
+            }
+            bodys.Clear();
+          
+            Snakehand.Left = 300;
+            Snakehand.Top = 300;
+            InitBaseBodys();
+            开始游戏ToolStripMenuItem_Click(sender,e);
+        }
+
         void SaveMap() {
             for (int i=1;i<38;i++) {
                 for (int j=2;j<28;j++) {
@@ -101,7 +113,7 @@ namespace GreedySnake {
                     this.Controls.Remove(Food);
                     Food = null;
                     Score += 1;
-                    labelScore.Text = Score.ToString();
+                    labelScore.Text = "Score:" + Score.ToString();
                     InitFood();
                 }
             }         
@@ -198,7 +210,7 @@ namespace GreedySnake {
 
         private void 开始游戏ToolStripMenuItem_Click(object sender, EventArgs e) {
             state = GameState.Gameing;
-            dir = direct.W;
+            dir = direct.A;
         }
 
         private void Snakehand_Click(object sender, EventArgs e) {
@@ -234,7 +246,14 @@ namespace GreedySnake {
         }
 
         private void 重新开始ToolStripMenuItem_Click(object sender, EventArgs e) {
-         
+            DestoryBodys(sender,e);
+            Score = 0;
+            labelScore.Text ="Score:"+ Score.ToString();
+        }
+
+        private void 关于贪食蛇ToolStripMenuItem_Click(object sender, EventArgs e) {
+            About about = new About();//首先实例化
+            about.Show();//Show方法
         }
     }
 }
