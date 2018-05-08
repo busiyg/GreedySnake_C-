@@ -1,2 +1,2 @@
-# GreedySnake_C-
+# GreedySnake_C#
 GreedySnake with C#
