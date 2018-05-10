@@ -1,4 +1,3 @@
-D:\C#Projects\GreedySnake\GreedySnake\obj\Debug\GreedySnake.csprojResolveAssemblyReference.cache
 D:\C#Projects\GreedySnake\GreedySnake\bin\Debug\GreedySnake.exe.config
 D:\C#Projects\GreedySnake\GreedySnake\bin\Debug\GreedySnake.exe
 D:\C#Projects\GreedySnake\GreedySnake\bin\Debug\GreedySnake.pdb
@@ -8,3 +7,8 @@ D:\C#Projects\GreedySnake\GreedySnake\obj\Debug\GreedySnake.MainForm.resources
 D:\C#Projects\GreedySnake\GreedySnake\obj\Debug\GreedySnake.csproj.GenerateResource.Cache
 D:\C#Projects\GreedySnake\GreedySnake\obj\Debug\GreedySnake.Properties.Resources.resources
 D:\C#Projects\GreedySnake\GreedySnake\obj\Debug\GreedySnake.About.resources
+D:\C#Projects\GreedySnake\GreedySnake\bin\Debug\GreedySnake.exe.manifest
+D:\C#Projects\GreedySnake\GreedySnake\bin\Debug\GreedySnake.application
+D:\C#Projects\GreedySnake\GreedySnake\obj\Debug\GreedySnake.TrustInfo.xml
+D:\C#Projects\GreedySnake\GreedySnake\obj\Debug\GreedySnake.exe.manifest
+D:\C#Projects\GreedySnake\GreedySnake\obj\Debug\GreedySnake.application
